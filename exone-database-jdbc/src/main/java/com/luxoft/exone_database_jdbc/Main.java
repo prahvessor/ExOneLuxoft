@@ -1,4 +1,6 @@
 package com.luxoft.exone_database_jdbc;
+import com.luxoft.exone_database_jdbc.dbutils.TableUpdater;
+import com.luxoft.exone_database_jdbc.statisticbeans.FileStatistic;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -18,6 +20,9 @@ public class Main {
         
         List<String> listOfLines = getListOfLinesFromFile(FILE_PATH);
         FileStatistic fileStatistic = new FileStatistic(listOfLines);
+        
+        TableUpdater tableUpdater = new TableUpdater();
+        tableUpdater.updateTable(fileStatistic);
         
         System.out.println("Program completed. Check the DB please");
     }

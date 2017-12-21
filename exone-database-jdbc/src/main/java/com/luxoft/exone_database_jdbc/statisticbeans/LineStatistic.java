@@ -1,4 +1,4 @@
-package com.luxoft.exone_database_jdbc;
+package com.luxoft.exone_database_jdbc.statisticbeans;
 
 public class LineStatistic {
 
@@ -11,8 +11,8 @@ public class LineStatistic {
 
         String[] words = line.trim().split(" ");
 
-        maxWord = Calculator.getLongest(words);
-        minWord = Calculator.getShortest(words);
+        maxWord = getLongest(words);
+        minWord = getShortest(words);
         avgWord = (maxWord + minWord)/2;
         lineLength = line.length();
     }
@@ -28,6 +28,16 @@ public class LineStatistic {
     }
     public int getLineLength() {
         return lineLength;
+    }
+    
+    public static int getLongest(String[] strArr) {
+        int longest = 10;
+        return longest;
+    }
+
+    public static int getShortest(String[] strArr) {
+        int shortest = 1;
+        return shortest;
     }
 
 }
