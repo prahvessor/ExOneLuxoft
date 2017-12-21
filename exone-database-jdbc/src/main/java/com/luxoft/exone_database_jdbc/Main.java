@@ -1,4 +1,4 @@
-package com.luxoft.exone.exone_database_jdbc;
+package com.luxoft.exone_database_jdbc;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -12,11 +12,12 @@ public class Main {
     
     public static void main( String[] args ) {
         
-        final String FILE_PATH = "src/main/resources/test_text.txt";
+        final String FILE_PATH = "src/main/resources/text1.txt";
         
         System.out.println("Program started");
         
         List<String> listOfLines = getListOfLinesFromFile(FILE_PATH);
+        FileStatistic fileStatistic = new FileStatistic(listOfLines);
         
         System.out.println("Program completed. Check the DB please");
     }

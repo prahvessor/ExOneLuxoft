@@ -1,4 +1,4 @@
-package com.luxoft.exone.exone_database_jdbc;
+package com.luxoft.exone_database_jdbc;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
