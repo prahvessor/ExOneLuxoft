@@ -1,0 +1,9 @@
+GitLab Inc. is a company based on the GitLab open-source project. 
+GitLab is an integrated product that unifies issues, code review, 
+CI and CD into a single UI. GitLab Inc. offers self hosted products 
+and SaaS plans for GitLab.com. GitLab is an open source project 
+with a large community. Over 1800 people worldwide have contributed 
+to GitLab! GitLab Inc. is an active participant in this community, 
+see our stewardship of GitLab CE for more information. For a more 
+customer focused overview see our pitches. We have a lot 
+of information available online, see the primer for a good start.
