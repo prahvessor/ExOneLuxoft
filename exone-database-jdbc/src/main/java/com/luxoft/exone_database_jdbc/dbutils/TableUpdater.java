@@ -13,17 +13,17 @@ public class TableUpdater {
         String sqlLine ="INSERT INTO LINESTATISTIC VALUES(?,?,?,?)";
         String sqlFile ="INSERT INTO FILESTATISTIC VALUES(?,?,?,?)";
 
-        try (Connection connection = DBUtils.getConnection();
+        try (Connection connection = DBConnector.getConnection();
              PreparedStatement prStatementLine = connection.prepareStatement(sqlLine);
              PreparedStatement prStatementFile = connection.prepareStatement(sqlFile)) {
 
-            for (LineStatistic nextLineStatistic : fileStatistic.getLineStatisticList()) {
+            for (LineStatistic lineStatistic : fileStatistic.getLineStatisticList()) {
 
                 updateTable(prStatementLine,
-                        nextLineStatistic.getMaxWord(),
-                        nextLineStatistic.getMinWord(),
-                        nextLineStatistic.getAvgWord(),
-                        nextLineStatistic.getLineLength());
+                        lineStatistic.getLongestWord(),
+                        lineStatistic.getShortestWord(),
+                        lineStatistic.getAvgWord(),
+                        lineStatistic.getLineLength());
 
             }
 

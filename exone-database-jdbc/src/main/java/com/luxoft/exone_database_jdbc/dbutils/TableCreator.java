@@ -11,7 +11,7 @@ public class TableCreator {
         final String SQL_LINE = "CREATE TABLE LINESTATISTIC(MAX_WORD NUMERIC(2),MIN_WORD NUMERIC(2),AVG_WORD NUMERIC(2),LINE_LENGTH NUMERIC(3))";
         final String SQL_FILE = "CREATE TABLE FILESTATISTIC(MAX_FILE_WORD NUMERIC(2),MIN_FILE_WORD NUMERIC(2),AVG_FILE_WORD NUMERIC(2),AVG_LINE_LENGTH NUMERIC(3))";
 
-        try (Connection con = DBUtils.getConnection();
+        try (Connection con = DBConnector.getConnection();
              Statement stmtLine = con.createStatement();
              Statement stmtFile = con.createStatement()) {
 

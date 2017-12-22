@@ -3,7 +3,7 @@ package com.luxoft.exone_database_jdbc.dbutils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-class DBUtils {
+class DBConnector {
 
     static {
         try {

@@ -18,7 +18,7 @@ public class Main {
         
         System.out.println("Program started");
         
-        List<String> listOfLines = getListOfLinesFromFile(FILE_PATH);
+        listOfLines = getListOfLinesFromFile(FILE_PATH);
         FileStatistic fileStatistic = new FileStatistic(listOfLines);
         
         TableUpdater tableUpdater = new TableUpdater();

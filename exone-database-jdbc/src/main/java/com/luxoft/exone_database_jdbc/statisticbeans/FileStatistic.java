@@ -1,12 +1,13 @@
 package com.luxoft.exone_database_jdbc.statisticbeans;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class FileStatistic {
 
-    private final int maxFileWord;
-    private final int minFileWord;
+    private final int longestFileWord;
+    private final int shortestFileWord;
     private final int avgFileWord;
     private final int avgFileLineLength;
     private List<LineStatistic> lineStatisticList = new ArrayList<>();
@@ -18,17 +19,17 @@ public class FileStatistic {
             lineStatisticList.add(i++, (new LineStatistic(line)));
         }
 
-        maxFileWord = getFileLongest(lineStatisticList);
-        minFileWord = getFileShortest(lineStatisticList);
-        avgFileWord = getFileAvg(lineStatisticList);
-        avgFileLineLength = getFileAvgLine(lineStatisticList);
+        longestFileWord = findFileLongest(lineStatisticList);
+        shortestFileWord = findFileShortest(lineStatisticList);
+        avgFileWord = findFileAvg(lineStatisticList);
+        avgFileLineLength = findFileAvgLine(lineStatisticList);
     }
 
     public int getMaxFileWord() {
-        return maxFileWord;
+        return longestFileWord;
     }
     public int getMinFileWord() {
-        return minFileWord;
+        return shortestFileWord;
     }
     public int getAvgFileWord() {
         return avgFileWord;
@@ -40,24 +41,39 @@ public class FileStatistic {
         return lineStatisticList;
     }
 
-    public static int getFileLongest(List<LineStatistic> lineStatistic){
-        int maxFileWord = 10;
-        return maxFileWord;
+    public static int findFileLongest(List<LineStatistic> lineStatistic){
+        int[] allLongest = new int[lineStatistic.size()];
+        for (int i = 0; i < lineStatistic.size(); i++) {
+            allLongest[i] = lineStatistic.get(i).getLongestWord();
+        }
+        Arrays.sort(allLongest);
+        return allLongest[lineStatistic.size()-1];
     }
 
-    public static int getFileShortest(List<LineStatistic> lineStatistic){
-        int minFileWord = 1;
-        return minFileWord;
+    public static int findFileShortest(List<LineStatistic> lineStatistic){
+        int[] allShortest = new int[lineStatistic.size()];
+        for (int i = 0; i < lineStatistic.size(); i++) {
+            allShortest[i] = lineStatistic.get(i).getShortestWord();
+        }
+        Arrays.sort(allShortest);
+        return allShortest[0];
     }
 
-    public static int getFileAvg(List<LineStatistic> lineStatistic){
-        int avgFileWord = 5;
-        return avgFileWord;
+    public static int findFileAvg(List<LineStatistic> lineStatistic){
+        int[] parameters = new int[lineStatistic.size()];
+        for (int i = 0; i < lineStatistic.size(); i++) {
+            parameters[i] = lineStatistic.get(i).getAvgWord();
+        }
+        Arrays.sort(parameters);
+        return (parameters[lineStatistic.size()-1] + parameters[0])/2;
     }
 
-    public static int getFileAvgLine(List<LineStatistic> lineStatistic){
-        int fileAvgLineLength = 5;
-        int listLength = lineStatistic.size();
-        return fileAvgLineLength/listLength;
+    public static int findFileAvgLine(List<LineStatistic> lineStatistic){
+        int[] parameters = new int[lineStatistic.size()];
+        for (int i = 0; i < lineStatistic.size(); i++) {
+            parameters[i] = lineStatistic.get(i).getLineLength();
+        }
+        return (parameters[lineStatistic.size()-1] + parameters[0])/2;
     }
+    
 }

@@ -1,9 +1,11 @@
 package com.luxoft.exone_database_jdbc.statisticbeans;
 
+import java.util.Arrays;
+
 public class LineStatistic {
 
-    private final int maxWord;
-    private final int minWord;
+    private final int longestWord;
+    private final int shortestWord;
     private final int avgWord;
     private final int lineLength;
 
@@ -11,17 +13,17 @@ public class LineStatistic {
 
         String[] words = line.trim().split(" ");
 
-        maxWord = getLongest(words);
-        minWord = getShortest(words);
-        avgWord = (maxWord + minWord)/2;
+        longestWord = findLongest(words);
+        shortestWord = findShortest(words);
+        avgWord = (longestWord + shortestWord)/2;
         lineLength = line.length();
     }
 
-    public int getMaxWord() {
-        return maxWord;
+    public int getLongestWord() {
+        return longestWord;
     }
-    public int getMinWord() {
-        return minWord;
+    public int getShortestWord() {
+        return shortestWord;
     }
     public int getAvgWord() {
         return avgWord;
@@ -30,14 +32,23 @@ public class LineStatistic {
         return lineLength;
     }
     
-    public static int getLongest(String[] strArr) {
-        int longest = 10;
-        return longest;
+    public static int findLongest(String[] words) {
+        int[] wordsLength = findWordLength(words);
+        return wordsLength[wordsLength.length -1];
     }
 
-    public static int getShortest(String[] strArr) {
-        int shortest = 1;
-        return shortest;
+    public static int findShortest(String[] words) {
+        int[] wordsLength = findWordLength(words);
+        return wordsLength[0];
+    }
+    
+    private static int[] findWordLength(String[] words) {
+        int[] wordsLength = new int[words.length];
+        for (int i = 0; i < words.length; i++) {
+            wordsLength[i] = words[i].length();
+        }
+        Arrays.sort(wordsLength);
+        return wordsLength;
     }
 
 }

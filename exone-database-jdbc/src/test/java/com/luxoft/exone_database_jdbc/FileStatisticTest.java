@@ -11,10 +11,10 @@ import org.junit.Test;
 import com.luxoft.exone_database_jdbc.statisticbeans.FileStatistic;
 import com.luxoft.exone_database_jdbc.statisticbeans.LineStatistic;
 
-public class CalculatorTest {
-
+public class FileStatisticTest {
+    
     public static List<LineStatistic> lineStatisticListTest = new ArrayList<>();
-
+    
     @BeforeClass
     public static void testSetup() {
         String words1 = "123456789 12 12345";
@@ -29,34 +29,22 @@ public class CalculatorTest {
     
     @Test
     public void shouldFindLongestWordInFile() throws Exception {
-        assertEquals("The longest word must be 9", 9, FileStatistic.getFileLongest(lineStatisticListTest));
+        assertEquals(9, FileStatistic.findFileLongest(lineStatisticListTest));
     }
 
     @Test
     public void shouldFindShortestWordInFile() throws Exception {
-        assertEquals("The shortest word must be 1", 1, FileStatistic.getFileShortest(lineStatisticListTest));
+        assertEquals(1, FileStatistic.findFileShortest(lineStatisticListTest));
     }
 
     @Test
     public void shouldFindAverageWordInFile() throws Exception {
-        assertEquals("The average word must be 4", 4, FileStatistic.getFileAvg(lineStatisticListTest));
+        assertEquals(4, FileStatistic.findFileAvg(lineStatisticListTest));
     }
 
     @Test
     public void shouldFindFindAverageLineInFile() throws Exception {
-        assertEquals("The average line must be 16", 16, FileStatistic.getFileAvgLine(lineStatisticListTest));
-    }
-
-    @Test
-    public void shouldFindLongestWordInLine() throws Exception {
-        String[] str = {"4444", "333", "1"};
-        assertEquals("The longest word must be 4444", 4, LineStatistic.getLongest(str));
-    }
-
-    @Test
-    public void shouldFindShortestWordInLine() throws Exception {
-        String[] str = {"4444", "333", "1"};
-        assertEquals("The shortest word must be 1", 1, LineStatistic.getShortest(str));
+        assertEquals(16, FileStatistic.findFileAvgLine(lineStatisticListTest));
     }
 
 }
