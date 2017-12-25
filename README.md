@@ -12,5 +12,5 @@ The console application uses H2 database.
 Before launching the program, you should create tables in database. 
 To create tables launch 
 ```
-com.luxoft.exone_database_jdbc.dbutils.TableCreator
+com.luxoft.exone.database.jdbc.dbutils.TableCreator
 ```
