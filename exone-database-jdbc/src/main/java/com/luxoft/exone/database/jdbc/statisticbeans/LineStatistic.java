@@ -1,4 +1,4 @@
-package com.luxoft.exone_database_jdbc.statisticbeans;
+package com.luxoft.exone.database.jdbc.statisticbeans;
 
 import java.util.Arrays;
 
@@ -17,6 +17,11 @@ public class LineStatistic {
         shortestWord = findShortest(words);
         avgWord = (longestWord + shortestWord)/2;
         lineLength = line.length();
+    }
+    
+    @Override
+    public String toString() {
+        return "[longestWord:" + longestWord + ", shortestWord:" + shortestWord + ", avgWord:" + avgWord + ", lineLength:" + lineLength +"]";
     }
 
     public int getLongestWord() {

@@ -1,4 +1,4 @@
-package com.luxoft.exone_database_jdbc.dbutils;
+package com.luxoft.exone.database.jdbc.dbutils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

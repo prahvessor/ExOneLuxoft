@@ -1,4 +1,4 @@
-package com.luxoft.exone_database_jdbc.statisticbeans;
+package com.luxoft.exone.database.jdbc.statisticbeans;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -23,6 +23,11 @@ public class FileStatistic {
         shortestFileWord = findFileShortest(lineStatisticList);
         avgFileWord = findFileAvg(lineStatisticList);
         avgFileLineLength = findFileAvgLine(lineStatisticList);
+    }
+    
+    @Override
+    public String toString() {
+        return "longestFileWord:" + longestFileWord + ", shortestFileWord:" + shortestFileWord + ", avgFileWord:" +avgFileWord + ", avgFileLineLength:" + avgFileLineLength;
     }
 
     public int getLongestFileWord() {

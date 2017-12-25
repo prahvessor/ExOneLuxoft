@@ -1,10 +1,10 @@
-package com.luxoft.exone_database_jdbc;
+package com.luxoft.exone.database.jdbc;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import com.luxoft.exone_database_jdbc.statisticbeans.LineStatistic;
+import com.luxoft.exone.database.jdbc.statisticbeans.LineStatistic;
 
 public class LineStatisticTest {
 
