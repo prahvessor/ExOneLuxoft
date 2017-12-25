@@ -28,8 +28,8 @@ public class TableUpdater {
             }
 
             updateTable(prStatementFile,
-                    fileStatistic.getMaxFileWord(),
-                    fileStatistic.getMinFileWord(),
+                    fileStatistic.getLongestFileWord(),
+                    fileStatistic.getShortestFileWord(),
                     fileStatistic.getAvgFileWord(),
                     fileStatistic.getAvgFileLineLength());
 
@@ -38,10 +38,10 @@ public class TableUpdater {
         }
     }
 
-    private void updateTable(PreparedStatement prStatement, int max, int min, int avg, int line) throws Exception{
+    private void updateTable(PreparedStatement prStatement, int longest, int shortest, int avg, int line) throws Exception{
 
-        prStatement.setInt(1, max);
-        prStatement.setInt(2, min);
+        prStatement.setInt(1, longest);
+        prStatement.setInt(2, shortest);
         prStatement.setInt(3, avg);
         prStatement.setInt(4, line);
 

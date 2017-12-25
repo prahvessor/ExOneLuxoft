@@ -25,10 +25,10 @@ public class FileStatistic {
         avgFileLineLength = findFileAvgLine(lineStatisticList);
     }
 
-    public int getMaxFileWord() {
+    public int getLongestFileWord() {
         return longestFileWord;
     }
-    public int getMinFileWord() {
+    public int getShortestFileWord() {
         return shortestFileWord;
     }
     public int getAvgFileWord() {
