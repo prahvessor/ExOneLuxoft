@@ -5,8 +5,9 @@ average word length. Unit test are mandatory
 - Aggregate these values for all lines from file(unit test)
 - Store line and file statistic into DB(with JDBC).
 
-### Added possibility to handle all files in directory and sub-directories(optional)
+- Added possibility to handle all files in directory and sub-directories(optional)
 
+### README before start
 The console application uses H2 database.
 Before launching the program, you should create tables in database. 
 To create tables launch 

@@ -14,9 +14,8 @@ public class FileStatistic {
 
     public FileStatistic(List<String> listOfLines) {
 
-        int i = 0;
         for (String line: listOfLines) {
-            lineStatisticList.add(i++, (new LineStatistic(line)));
+            lineStatisticList.add(new LineStatistic(line));
         }
 
         longestFileWord = findFileLongest(lineStatisticList);
